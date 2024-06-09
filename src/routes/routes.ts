@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { membersRoute } from "./members";
+import { studysRoute } from "./studies";
 
 export const routes = Router();
 
-routes.use("/members", membersRoute )
+routes.use("/studies", studysRoute )
 

@@ -8,7 +8,7 @@ const connection = new Sequelize({
   host: "localhost", // Specifies the database host
   username: "root", // Specifies the database username
   password: "", // Specifies the database password
-  database: "scrum", // Specifies the database name
+  database: "test_studies_app", // Specifies the database name
   logging: false, // Disables logging of SQL queries
 });
 

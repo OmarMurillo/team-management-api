@@ -1,31 +1,31 @@
-import { IMember } from "../../domain/interfaces/IMember";
-import { IMemberRepository } from "../../domain/repositories/members/IMemberRepository";
-import { MemberEntity } from "../../dtos/MemberDTO";
-import { IMemberDTO } from "../../interfaces/dtos/IMemberDTO";
+// import { IMember } from "../../domain/interfaces/IMember";
+// import { IMemberRepository } from "../../domain/repositories/members/IMemberRepository";
+// import { MemberEntity } from "../../dtos/MemberDTO";
+// import { IMemberDTO } from "../../interfaces/dtos/IMemberDTO";
 
 
-export class MemberInteractor {
-    constructor( private readonly memberRepo: IMemberRepository ){ }
+// export class MemberInteractor {
+//     constructor( private readonly memberRepo: IMemberRepository ){ }
 
-    public async save(data: IMemberDTO){
-        const memberEntity = new MemberEntity(data)
+//     public async save(data: IMemberDTO){
+//         const memberEntity = new MemberEntity(data)
 
-        memberEntity.validate()
+//         memberEntity.validate()
 
-        await this.memberRepo.startTransaction()
+//         await this.memberRepo.startTransaction()
 
-        const memberInfo = memberEntity.toMember()
-        const activites = memberEntity.getFromDTOActivities()
+//         const memberInfo = memberEntity.toMember()
+//         const activites = memberEntity.getFromDTOActivities()
 
-        const createdMember = await this.memberRepo.create(memberInfo as IMember)
+//         const createdMember = await this.memberRepo.create(memberInfo as IMember)
 
-        if(createdMember.id && activites)
-            await this.memberRepo.saveMemberActivities(createdMember.id, activites)
+//         if(createdMember.id && activites)
+//             await this.memberRepo.saveMemberActivities(createdMember.id, activites)
         
-        await this.memberRepo.commitTransaction()
-        return {
-            "id": createdMember.id,
-            "message": "The member was saved"
-        }
-    }
-}
+//         await this.memberRepo.commitTransaction()
+//         return {
+//             "id": createdMember.id,
+//             "message": "The member was saved"
+//         }
+//     }
+// }
